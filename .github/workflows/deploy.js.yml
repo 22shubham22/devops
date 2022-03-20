@@ -9,11 +9,19 @@ on:
       - master
 
 jobs:
-  build:
-    name: CD Pipeline
-
+  cancel:
+    name: 'Cancel Previous Runs'
     runs-on: self-hosted
-
+    timeout-minutes: 3
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          workflow_id: 22152243
+          access_token: ${{ github.token }}
+  notify:
+    needs: cancel
+    name: CD Pipeline
+    runs-on: self-hosted
     strategy:
       matrix:
         node-version: [14.x]
