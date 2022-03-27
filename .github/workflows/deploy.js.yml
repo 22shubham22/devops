@@ -9,19 +9,11 @@ on:
       - master
 
 jobs:
-  cancel:
-    name: 'Cancel Previous Runs'
-    runs-on: self-hosted
-    timeout-minutes: 3
-    steps:
-      - uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          workflow_id: 22152243
-          access_token: ${{ github.token }}
-  notify:
-    needs: cancel
+  build:
     name: CD Pipeline
+
     runs-on: self-hosted
+
     strategy:
       matrix:
         node-version: [14.x]
@@ -35,8 +27,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm i
-      - run: ng build
-      - run: cd dist\angular-starter
-      - run: ng serve
+      - run: ng build --prod
+      - run: firebase deploy
     env:
       CI: true
