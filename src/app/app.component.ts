@@ -10,7 +10,6 @@ export class AppComponent implements OnInit {
   a=10;
   b=10;
   c=30;
-  d=5;
   constructor() {}
 
   ngOnInit() {
