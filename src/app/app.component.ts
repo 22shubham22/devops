@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-root',
@@ -10,13 +9,15 @@ export class AppComponent implements OnInit {
   title = 'angular-starter';
   a=10;
   b=10;
-  constructor(public dialog : MatDialogRef<any>) {}
+  constructor() {}
 
   ngOnInit() {
-    this.foo();
+    this.foo(this.a,this.b);
   }
 
-  foo() {
-    return 2+3;
+  foo(a:any,b:any) {
+    a=a+10;
+    b=b+20;
+    return a+b;
   }
 }
