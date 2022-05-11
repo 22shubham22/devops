@@ -9,6 +9,7 @@ export class AppComponent implements OnInit {
   title = 'angular-starter';
   a=10;
   b=10;
+  c=30;
   constructor() {}
 
   ngOnInit() {
