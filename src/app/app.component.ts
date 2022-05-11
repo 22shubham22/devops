@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
   }
 
   foo() {
-    return 2 + 3;
+    const a = 5;
+    const b = 6;
+    var c = a + b;
+    return c;
   }
 }
