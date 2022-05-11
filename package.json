@@ -7,11 +7,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --browsers=ChromeHeadless",
+    "prepare": "husky install",
     "format": "prettier --write ./src/app"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm format && git add -A ."
+      "pre-commit": "echo \"[Husky] pre-commit \" "
     }
   },
   "private": true,
