@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     const a = 1;
     const b = 5;
     const c = a + b;
+    const s = 'shubham';
     return 2 + 3;
   }
 }
