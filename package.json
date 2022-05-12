@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --browsers=ChromeHeadless",
     "prepare": "husky install",
-    "format": "prettier --write ./src/app && git add -A ."
+    "format": "prettier --config .prettierrc --write ./src/app && git add -A ."
   },
   "author": {
     "name": "danny",
