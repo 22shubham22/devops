@@ -1,11 +1,7 @@
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
 }
 
-.example-button-row {
-  display: table-cell;
-  width: 490px;
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }
