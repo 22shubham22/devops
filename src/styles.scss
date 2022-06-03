@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "72";
+    src: url("~@sap-theming/theming-base-content/content/Base/baseLib/baseTheme/fonts/72-Regular-full.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "72";
+    src: url("~@sap-theming/theming-base-content/content/Base/baseLib/baseTheme/fonts/72-Light.woff")
+        format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "72";
+    src: url("~@sap-theming/theming-base-content/content/Base/baseLib/baseTheme/fonts/72-Bold.woff")
+        format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SAP-icons";
+    src: url("~@sap-theming/theming-base-content/content/Base/baseLib/baseTheme/fonts/SAP-icons.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+html, body{
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-color: var(--sapBackgroundColor);
+  overflow-y: hidden;
+  font-family: var(--sapFontFamily,"72","72full",Arial,Helvetica,sans-serif);
+}
+
+
+// luigi style update
+.fd-app__sidebar{
+    outline: none;
+}
+
+.fd-app__sidebar .fd-nested-list {
+    border: 0;
+}
+
+.fd-app__sidebar .fd-nested-list__item {
+    background: var(--sapShellColor);
+    :active {
+        background: var(--sapShell_Hover_Background);
+    }
+    :hover {
+        background: var(--sapShell_Hover_Background) !important;
+    }
+    .fd-nested-list__content{
+        border: 0;
+    }
+    .fd-nested-list__content:hover .fd-nested-list__button {
+        background: var(--sapShell_Hover_Background) !important;
+    }
+}
+
+.fd-app__sidebar .fd-nested-list__icon {
+    color: var(--sapShell_TextColor) !important;
+}
+
+.fd-app__sidebar .fd-nested-list__title {
+    color: var(--sapShell_TextColor);
+}
+
+.fd-app__sidebar .fd-nested-list__button {
+    background: var(--sapShellColor) !important;
+    color: var(--sapShell_TextColor);
+    > i {
+        color: var(--sapShell_TextColor);
+    }
+    :hover {
+        background: var(--sapShell_Hover_Background) !important;
+    }
+    :active {
+        background: var(--sapShell_Hover_Background);
+    }
+}
+
+.fd-app__sidebar .fd-nested-list__link.is-selected {
+    background: var(--sapShell_Hover_Background);
+    border: none;
+    :hover {
+        background: var(--sapShell_Hover_Background);
+    }
+}
+
+.fd-app__sidebar .fd-side-nav {
+    display: block;
+    background-color: var(--sapShellColor);
+}
+.fd-app__sidebar .fd-side-nav__main-navigation {
+    top: 2.75rem;
+    position: absolute;
+    left: 0;
+    right: 1px;
+}
+div[class~="iframeContainer"], div[class~="fd-app__sidebar"] {
+    top: 0 !important;
+}
+
+.fd-app__sidebar .fd-side-nav__utility {
+    top: 0;
+    box-shadow: 0 1px 10px 0px rgb(0 0 0 / 25%)
+}
+.fd-app__sidebar .sap-icon--open-command-field:before {
+    content: ""
+}
+.fd-app__sidebar .sap-icon--close-command-field:before {
+    content: ""
+}
+.fd-app__sidebar .lui-side-nav__footer {
+    border: 0;
+    &--icon {
+        line-height: 0.75rem;
+        color:  var(--sapShell_TextColor);
+    }
+    &--text {
+        display: none;
+    }
+}
+
+.fd-app__sidebar .lui-flyout-sublist{
+    position: fixed !important;
+    margin-top: 84px;
+}
+.lui-flyout-sublist__title{
+    color: var(--sapShell_TextColor);
+    background-color: var(--sapShellColor) !important;
+}
+
+div[class*="lui-flyout-sublist__wrapper svelte"]::after {
+    border-right-color: var(--sapShellColor) !important;
+}
+
+div[class*="fd-shellbar  svelte"] {
+    display: none;
+}

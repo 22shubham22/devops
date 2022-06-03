@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <img
-      src="https://images7.alphacoders.com/941/941221.jpg"
-      height="700"
-      width="1870"
-    />
-    <button type="button" onclick="alert('Test deployment to firebase. Final')">
-      Click Me!
-    </button>
+  <fd-shellbar>
+    <fd-shellbar-logo>
+      <a href="#" class="fd-shellbar__logo fd-shellbar__logo--image-replaced" aria-label="SAP"></a>
+    </fd-shellbar-logo>
+    <fd-shellbar-title> Weather Forecast </fd-shellbar-title>
+    <fd-shellbar-actions [user]="user" [userMenu]="userMenu" [closePopoverOnSelect]="true"></fd-shellbar-actions>
+  </fd-shellbar>
+  <br>
+  <div fd-form-item style="padding-left: 10px;">
+    <label fd-form-label for="input-1">Enter Name of City : </label>
+    <input fd-form-control type="text" id="input-1" placeholder="Field placeholder text" #username/>
+  </div>
+  <br>
+  <button style="margin-left: 10px;" type="button" (click)="submit(username.value)">Submit</button>
+  <br>
+  <div style="padding-left:20px;margin-top: 2rem;">
+    <fd-busy-indicator [loading]="loading" ariaLabel="loading" title="Please Wait"></fd-busy-indicator>
+  </div>
+  <div style="padding-left: 10px;" *ngIf="visible">
+    <fd-facet type="form" facetTitle="Forecast" id="formFacetExample">
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-1">Temperature</label>
+        <fd-text text={{temp}} id="form-value-1"></fd-text>
+      </fd-facet-content>
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-2">Cloud Cover</label>
+        <fd-text text={{cloud}} id="form-value-2"></fd-text>
+      </fd-facet-content>
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-3">Humidity</label>
+        <fd-text text={{hum}} id="form-value-3"></fd-text>
+      </fd-facet-content>
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-4">Wind Speed(Km/h)</label>
+        <fd-text text={{wind}} id="form-value-4"></fd-text>
+      </fd-facet-content>
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-4">Name</label>
+        <fd-text text={{name}} id="form-value-5"></fd-text>
+      </fd-facet-content>
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-4">Region</label>
+        <fd-text text={{region}} id="form-value-6"></fd-text>
+      </fd-facet-content>
+      <fd-facet-content>
+        <label fd-form-label [colon]="true" for="form-value-4">Country</label>
+        <fd-text text={{country}} id="form-value-7"></fd-text>
+      </fd-facet-content>
+    </fd-facet>
+  </div>
   </body>
 </html>
