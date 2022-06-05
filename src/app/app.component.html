@@ -19,7 +19,8 @@
   <div style="padding-left:20px;margin-top: 2rem;">
     <fd-busy-indicator [loading]="loading" ariaLabel="loading" title="Please Wait"></fd-busy-indicator>
   </div>
-  <div style="padding-left: 10px;" *ngIf="visible">
+  <div style="padding-left: 10px;" *ngIf="showError">{{errorText}}</div>
+  <div style="padding-left: 10px;" *ngIf="visible && !showError">
     <fd-facet type="form" facetTitle="Forecast" id="formFacetExample">
       <fd-facet-content>
         <label fd-form-label [colon]="true" for="form-value-1">Temperature</label>
