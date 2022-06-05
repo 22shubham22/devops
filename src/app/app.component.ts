@@ -17,7 +17,9 @@ export class AppComponent {
   country:any;
   loading:boolean = false;
   visible:boolean = false;
-  title:string = 'angular-starter';
+  title: string = 'angular-starter';
+  errorText = 'Location Not Found !!!';
+  showError = false;
 
   constructor(private http: HttpClient) {}
   user: ShellbarUser = {
@@ -40,22 +42,39 @@ export class AppComponent {
   submit(name: any){
     this.loading=true;
     this.visible=false;
-    var lat,long;
-    this.getLatLong(name).subscribe((data:any) => {
-        lat= data.data[0].latitude;
-        long= data.data[0].longitude;
-        this.getWeather(lat,long).subscribe((data:any) => {
-          this.loading=false;
-          this.temp=data.current.temperature;
-          this.cloud=data.current.cloudcover;
-          this.hum=data.current.humidity;
-          this.wind=data.current.wind_speed;
-          this.name=data.location.name;
-          this.region=data.location.region;
-          this.country=data.location.country;
-          this.visible=true;
-      });
-      });
+    var lat, long;
+    this.getLatLong(name).subscribe({
+      next: (data: any) => {
+        if (data.data.length === 0) {
+          this.loading = false;
+          this.showError = true;
+          return
+        }
+        this.showError = false;
+        lat = data.data[0].latitude;
+        long = data.data[0].longitude;
+        this.getWeather(lat, long).subscribe((data: any) => {
+          this.loading = false;
+          this.temp = data.current.temperature;
+          this.cloud = data.current.cloudcover;
+          this.hum = data.current.humidity;
+          this.wind = data.current.wind_speed;
+          this.name = data.location.name;
+          this.region = data.location.region;
+          this.country = data.location.country;
+          this.visible = true;
+        })
+      }
+    });
+    // this.getLatLong(name).subscribe(
+    //   (data: any) => {
+    //   });
+    //   },
+    //   (error: any) => {
+    //     console.log("hello");
+    //     
+    //   }
+    // );
   }
   getLatLong(name:any) {
     let url = 'http://api.positionstack.com/v1/forward?access_key=a6af74dd0d1482a7002f06a794e3f9a8&query=';
